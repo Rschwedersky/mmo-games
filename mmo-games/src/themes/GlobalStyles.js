@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`  
+
 *,
 *::after,
 *::before {
@@ -11,8 +14,10 @@ html {
   font-size: 16px;
   color: #333;
   font-family: 'Montserrat', sans-serif;
+  
 }
 
 body {
   background-color: #fefefc;
 }
+`;

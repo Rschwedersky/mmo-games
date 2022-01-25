@@ -1,8 +1,29 @@
 import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import { Router } from './routes/Routes';
+import { GlobalStyle } from './themes/GlobalStyles';
+import { myTheme } from './themes/themes';
+import { NoticiasProvider } from './contexts/noticias';
+import { Teste } from './components/Teste';
+import { Noticias } from './components/Noticias/Noticias';
+import { DarkModeProvider } from './contexts/darkmode/DarkModeProvider';
 
 function App() {
-  return (
+  return (<>
+    <DarkModeProvider>
+    <GlobalStyle />
+    <ThemeProvider theme={myTheme}>
+        <GlobalStyle />
+        
+          <NoticiasProvider>
+            <Noticias/>
+          </NoticiasProvider> 
+
+          
+      </ThemeProvider>
+      </DarkModeProvider>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +40,7 @@ function App() {
         </a>
       </header>
     </div>
+    </>
   );
 }
 
