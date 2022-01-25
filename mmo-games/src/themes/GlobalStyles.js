@@ -18,6 +18,6 @@ html {
 }
 
 body {
-  background-color: #fefefc;
+  background-color: #cfcfcf;
 }
 `;

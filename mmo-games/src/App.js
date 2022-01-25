@@ -9,6 +9,7 @@ import { NoticiasProvider } from './contexts/noticias';
 import { Teste } from './components/Teste';
 import { Noticias } from './components/Noticias/Noticias';
 import { DarkModeProvider } from './contexts/darkmode/DarkModeProvider';
+import { Navbar } from './components/NavBar/NavBar';
 
 function App() {
   return (<>
@@ -16,30 +17,13 @@ function App() {
     <GlobalStyle />
     <ThemeProvider theme={myTheme}>
         <GlobalStyle />
-        
+        <Navbar></Navbar>
           <NoticiasProvider>
             <Noticias/>
           </NoticiasProvider> 
-
           
       </ThemeProvider>
       </DarkModeProvider>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
     </>
   );
 }

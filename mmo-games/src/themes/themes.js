@@ -6,7 +6,7 @@ export const myTheme = {
         dark: '#474747',
       },
       secondary: {
-        light: '#d1ff33',
+        light: '#e0fa87',
         main: '#c6ff00',
         dark: '#8ab200',
       },

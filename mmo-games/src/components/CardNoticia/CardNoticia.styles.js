@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
 export const Card = styled.li`
+    ${({ primary, theme }) => ({
+    color: primary ? theme.colors.primary.main : theme.colors.secondary.main,
+    backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
+    })};
     width: 90%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    background-color: white;
     list-style-type: none;
+    border-radius: 20px;
 `;
 
 export const Thumbnail = styled.div`
@@ -19,17 +23,17 @@ export const Description = styled.div`
 
 export const Image = styled.img`
     width: 30%;
-    overflow: hidden;  
+    overflow: hidden;
+    border-radius: 20px;
+      
 `;
 
 export const CardTitle = styled.h2`
-    font-size: 1.5rem;
-    color: #436147;
-    text-align: center;  
+    font-size: 1.5rem; 
 `;
 
 export const Botao = styled.button`
-  margin-right: 1px;
+  margin-left: 88%;
   padding: 5px;
   background-color: ${({ theme }) => theme.colors.secondary.main};
   cursor: pointer;
