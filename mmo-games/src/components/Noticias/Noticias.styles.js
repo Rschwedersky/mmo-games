@@ -17,7 +17,8 @@ export const CardGrid = styled.ul`
 `;
 
 export const Botao = styled.button`
-  margin-right: 1px;
+  position: relative;
+  left: 35%;
   padding: 5px;
   background-color: ${({ theme }) => theme.colors.secondary.main};
   cursor: pointer;

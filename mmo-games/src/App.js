@@ -10,6 +10,7 @@ import { Teste } from './components/Teste';
 import { Noticias } from './components/Noticias/Noticias';
 import { DarkModeProvider } from './contexts/darkmode/DarkModeProvider';
 import { Navbar } from './components/NavBar/NavBar';
+import { PaginacaoNoticias } from './components/PaginacaoNoticias/PaginacaoNoticias';
 
 function App() {
   return (<>
@@ -19,6 +20,7 @@ function App() {
         <GlobalStyle />
         <Navbar></Navbar>
           <NoticiasProvider>
+            <PaginacaoNoticias></PaginacaoNoticias>
             <Noticias/>
           </NoticiasProvider> 
           
