@@ -1,4 +1,4 @@
-import { NoticiasProvider } from '../../contexts/noticias';
+
 import {Card, Thumbnail, Description, Image, CardTitle, Botao } from './CardNoticia.styles';
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
 

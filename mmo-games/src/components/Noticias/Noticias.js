@@ -14,12 +14,12 @@ export const Noticias = () => {
   
     return (
       <Container ref={top}>
-        <CardGrid >
+        
           {noticiasFiltradas.length === 0
             ? 'Nenhuma Notícia encontrada'
             : noticiasFiltradas.map((item) => <CardNoticia key={item.id} noticia={item} />)}
-        </CardGrid>
-        <Botao onClick={handleVoltarAoTopo}>Voltar para o topo</Botao>
+        
+        <Botao onClick={handleVoltarAoTopo}>Back to top</Botao>
       </Container>
     );
   

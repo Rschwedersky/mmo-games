@@ -8,10 +8,7 @@ export const Container = styled.div`
 `;
 
 export const CardGrid = styled.ul`
-  /* ${({ primary, theme }) => ({
-    color: primary ? theme.colors.primary.main : theme.colors.secondary.main,
-    backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.main,
-  })}; */
+  
 
     
 `;

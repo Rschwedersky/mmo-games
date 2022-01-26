@@ -11,6 +11,7 @@ import { Noticias } from './components/Noticias/Noticias';
 import { DarkModeProvider } from './contexts/darkmode/DarkModeProvider';
 import { Navbar } from './components/NavBar/NavBar';
 import { PaginacaoNoticias } from './components/PaginacaoNoticias/PaginacaoNoticias';
+import { CardDestaque } from './components/CardDestaque/CardDestaque';
 
 function App() {
   return (<>
@@ -20,6 +21,7 @@ function App() {
         <GlobalStyle />
         <Navbar></Navbar>
           <NoticiasProvider>
+            <CardDestaque></CardDestaque>
             <PaginacaoNoticias></PaginacaoNoticias>
             <Noticias/>
           </NoticiasProvider> 

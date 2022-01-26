@@ -29,9 +29,19 @@ border-radius: 6px;
 `;
 
 export const InputBusca = styled.input`
-  padding: 0.4rem 5rem;
+  padding: 0.5% 10%;
   font-size: 1.25rem;
   margin: 1rem 0;
   background-color:#cfcfcf;
   border-radius: 50px  
+`;
+
+export const Controles = styled.div`
+${({ primary, theme }) => ({
+  color: primary ? theme.colors.primary.dark : theme.colors.secondary.main,
+  backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
+})};
+  display: block;
+  font-size: 1.17em;
+    text-align: center;  
 `;

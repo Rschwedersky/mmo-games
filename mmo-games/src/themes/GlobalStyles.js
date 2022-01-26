@@ -14,10 +14,12 @@ html {
   font-size: 16px;
   color: #333;
   font-family: 'Montserrat', sans-serif;
+  min-width:530px;
   
 }
 
 body {
   background-color: #cfcfcf;
+  
 }
 `;
