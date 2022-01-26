@@ -32,5 +32,6 @@ export const InputBusca = styled.input`
   padding: 0.4rem 5rem;
   font-size: 1.25rem;
   margin: 1rem 0;
-  background-color:#cfcfcf  
+  background-color:#cfcfcf;
+  border-radius: 50px  
 `;
