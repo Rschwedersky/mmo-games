@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.ul`
+export const Container = styled.div`
     background-color: #cfcfcf;
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
+`;
+
+export const CardGrid = styled.ul`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;  
 `;
 
 export const Botao = styled.button`

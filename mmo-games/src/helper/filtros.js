@@ -1,6 +1,6 @@
 export const filtrarListaPorTermoDeBusca = (lista, termo) => {
-    return lista.filter((noticia) => {
-      return new RegExp(termo, 'ig').test(noticia.title);
+    return lista.filter((item) => {
+      return new RegExp(termo, 'ig').test(item.title);
     });
   };
   

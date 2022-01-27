@@ -12,15 +12,17 @@ export const Noticias = () => {
       top.current.scrollIntoView({ behavior: 'smooth' });
     };
   
-    return (
+    return (<>
       <Container ref={top}>
         
           {noticiasFiltradas.length === 0
             ? 'Nenhuma Notícia encontrada'
             : noticiasFiltradas.map((item) => <CardNoticia key={item.id} noticia={item} />)}
         
-        <Botao onClick={handleVoltarAoTopo}>Back to top</Botao>
+        
       </Container>
+      <Botao onClick={handleVoltarAoTopo}>Back to top</Botao>
+      </>
     );
   
 };

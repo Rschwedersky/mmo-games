@@ -1,6 +1,7 @@
-import { useNoticias } from '../../contexts/noticias';
+
 import {Card, Thumbnail, Description, Image, CardTitle, Botao } from './CardDestaque.styles';
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
+import { useNoticias } from '../../contexts/noticias';
 
 export const CardDestaque = () => {
     const {dark} = useDarkMode();

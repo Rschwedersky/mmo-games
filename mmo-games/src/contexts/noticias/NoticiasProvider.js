@@ -1,24 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
-import { fetchAllNoticias } from '../../services/noticias-service';
-import { filtrarListaPorPagina, filtrarListaPorTermoDeBusca } from '../../helper/noticias';
+import { fetchAllAPI } from '../../services/api-service';
+import { filtrarListaPorPagina, filtrarListaPorTermoDeBusca } from '../../helper/filtros';
 import { NoticiasContext } from './NoticiasContext';
 
 
 export const NoticiasProvider = ({ children }) => {
     const [termoBusca, setTermoBusca] = useState('');
-    const [noticiasFiltradas, setNoticiasFiltradas] = useState([]);
     const [pagina, setPagina] = useState(1);
+    
+    const [noticiasFiltradas, setNoticiasFiltradas] = useState([]);
     const noticias = useRef([]);
   
     useEffect(() => {
-      // IIFE Imediately Invoked Function Expression
       (async () => {
-        const lista = await fetchAllNoticias();
+        const lista = await fetchAllAPI('/latestnews');
         noticias.current = lista;
         setNoticiasFiltradas(filtrarListaPorPagina(noticias.current, pagina));
       })();
-      // :)
-      //eslint-disable-next-line
     }, []);
   
     useEffect(() => {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+export const Card = styled.li`
     ${({ primary, theme }) => ({
     color: primary ? theme.colors.primary.main : theme.colors.secondary.main,
     backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
