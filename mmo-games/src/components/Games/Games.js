@@ -14,7 +14,6 @@ const top = useRef();
 const handleVoltarAoTopo = () => {
     top.current.scrollIntoView({ behavior: 'smooth' });
   };
-console.log('games',gamesFiltrados);
 return(
 <Container>
 <CardGrid>

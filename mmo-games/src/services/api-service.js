@@ -1,6 +1,5 @@
 export const fetchAllAPI = async (folder) => {
     try {
-      console.log('fetch',`${process.env.REACT_APP_URL}${folder}`);
       const response = await fetch(`${process.env.REACT_APP_URL}${folder}`, {
         "method": "GET",
         "headers": {

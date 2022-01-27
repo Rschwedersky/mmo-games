@@ -28,7 +28,6 @@ export const GamesProvider = ({ children }) => {
       setGamesFiltrados(filtrarListaPorPagina(games.current, pagina));
     }, [pagina]);
   
-    console.log('provider', gamesFiltrados);
     return (
       <GamesContext.Provider value={{ setTermoBusca, games, gamesFiltrados, pagina, setPagina, gameState, setGameState}}>
         {children}
