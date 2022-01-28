@@ -1,7 +1,7 @@
 import { GamesProvider } from "../../contexts/games/GamesProvider";
-import { Games } from "../Games";
-import { Navbar } from "../NavBar/NavBar";
-import { PaginacaoGames } from "../PaginacaoGames/PaginacaoGames";
+import { Games } from "../../components/Games";
+import { Navbar } from "../../components/NavBar/NavBar";
+
 
 
 export const GamesPage = () =>{
@@ -9,7 +9,6 @@ export const GamesPage = () =>{
     return(
      <GamesProvider>
         <Navbar/>
-        {/* <PaginacaoGames/> */}
         <Games/>
      </GamesProvider>
     );

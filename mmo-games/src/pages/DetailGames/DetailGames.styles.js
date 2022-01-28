@@ -13,13 +13,23 @@ ${({ primary, theme }) => ({
     font-size: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 17px;
-   
+    position: absolute;
+    z-index: 2;
     padding: 10px;
    
     
 `;
 export const DetailImagePrincipal = styled.img`
-    width: 100%;
-    border-radius: 20px;
-    border-top-left-radius: 0;
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  border: 1px #666 solid
+`;
+
+export const Indicator = styled.div`
+cursor: pointer;
+padding: 10px;
+text-align: center;
+border: 1px #666 solid
+background-color: ;
 `;

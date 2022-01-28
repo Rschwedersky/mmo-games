@@ -21,7 +21,7 @@ return(<>
 <CardGrid>
   {gamesFiltrados.length === 0
     ? 'Nenhum elemento encontrado'
-    : gamesFiltrados.map((elemento) => <CardGames key={elemento.id} games={elemento} />)};
+    : gamesFiltrados.map((elemento) => <CardGames key={elemento.id} games={elemento} />)}
 </CardGrid>
 </Container>
 </>

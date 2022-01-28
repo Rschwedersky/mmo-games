@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import { GamesPage } from '../components/GamesPage/GamesPage';
-import { NoticiasPage } from '../components/NoticiasPage/NoticiasPage';
+import { GamesPage } from '../pages/GamesPage/GamesPage';
+import { NoticiasPage } from '../pages/NoticiasPage/NoticiasPage';
 import { DetailGames } from '../pages/DetailGames';
 
 export const Router = () => (
