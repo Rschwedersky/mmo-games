@@ -6,6 +6,7 @@ import { Router } from './routes/Routes';
 import { GlobalStyle } from './themes/GlobalStyles';
 import { myTheme } from './themes/themes';
 import { DarkModeProvider } from './contexts/darkmode/DarkModeProvider';
+import { DetailGames } from './pages/DetailGames';
 
 
 function App() {
@@ -13,7 +14,6 @@ function App() {
     <GlobalStyle />
     <DarkModeProvider>
     <ThemeProvider theme={myTheme}>
-       
         <BrowserRouter>
           <Router />
         </BrowserRouter>

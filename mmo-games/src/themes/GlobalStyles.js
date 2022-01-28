@@ -20,6 +20,5 @@ html {
 
 body {
   background-color: #cfcfcf;
-  
 }
 `;

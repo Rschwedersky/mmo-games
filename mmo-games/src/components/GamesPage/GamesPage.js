@@ -9,7 +9,7 @@ export const GamesPage = () =>{
     return(
      <GamesProvider>
         <Navbar/>
-        <PaginacaoGames/>
+        {/* <PaginacaoGames/> */}
         <Games/>
      </GamesProvider>
     );

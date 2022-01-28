@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
-import { useItems } from '../../contexts/games/useGames';
 
 import { AppTitle, Botao, ConteinerBotao, NavBar } from './NavBar.styles';
 

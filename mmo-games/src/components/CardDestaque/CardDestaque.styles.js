@@ -6,10 +6,8 @@ export const Card = styled.div`
     backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
     })};
     width: 100%;
-    
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    list-style-type: none;
     border-radius: 20px;
 `;
 

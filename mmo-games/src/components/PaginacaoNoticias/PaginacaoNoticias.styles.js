@@ -8,7 +8,7 @@ export const Paginacao = styled.div`
   width: 100%;
   height: 80px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+ 
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-around;

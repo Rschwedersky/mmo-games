@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
-export const PaginacaoI = styled.div`
+export const PaginacaoGamesStyle = styled.div`
   ${({ primary, theme }) => ({
     color: primary ? theme.colors.primary.dark : theme.colors.secondary.main,
     backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
   })};
-  width: 100%;
-  height: 80px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
+ 
+  height: 100%;
+ 
+  border-bottom-right-radius:20px
+  
+  
+  
+  
 `;
 
 export const BotaoPaginacaoI = styled.button`
@@ -29,11 +30,12 @@ border-radius: 6px;
 `;
 
 export const InputBuscaI = styled.input`
-  padding: 0.5% 10%;
+
+padding: 7px ;
   font-size: 1.25rem;
-  margin: 1rem 0;
+  margin: 1rem;
   background-color:#cfcfcf;
-  border-radius: 50px  
+  border-radius: 10px  
 `;
 
 export const ControlesI = styled.div`

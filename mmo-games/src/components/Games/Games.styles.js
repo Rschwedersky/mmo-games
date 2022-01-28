@@ -4,10 +4,13 @@ export const Container = styled.div`
     background-color: #cfcfcf;
     width: 100%;
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0;
+    display: flex
 `;
 
 export const CardGrid = styled.ul`
+    margin:22%
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;  
