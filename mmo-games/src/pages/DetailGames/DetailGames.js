@@ -25,7 +25,7 @@ export const DetailGames = () => {
           const lista = await fetchAllAPI(`/game?id=${id}`);
           setGameDetail(lista);
         })();
-      }, []);
+      }, [id]);
 
 
     return(
@@ -47,7 +47,7 @@ export const DetailGames = () => {
         <li>{gameDetail.minimum_system_requirements.graphics}</li>
         <li>{gameDetail.minimum_system_requirements.storage}</li>
         </div>
-        <div><Formulario id={gameDetail.id}/></div>
+        <div><Formulario idGame={gameDetail.id}/></div>
 
       </div>
     

@@ -1,55 +1,61 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-
+import { useEffect, useState } from 'react';
 import { Botao, Model } from './Formulario.styles';
 
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import * as Yup from 'yup';
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
-import { useEffect, useRef, useState } from 'react';
 
-export const Formulario = ({id}) => {
-    
-    const {dark} = useDarkMode();
-    const[cadastroAberto, setCadastroAberto]= useState(false);
-    const dados = useRef();
-    const valuesRef = useRef();
+const KEY_LOCALSTORAGE = 'COMENTARIOS';
 
+export const Formulario = ({idGame}) => {
 
-    
-    
-    useEffect(() => {
-        (async () => {
-            const storage = localStorage.getItem(id);
-          dados.current= storage;
-        })();
-      }, []);
+  const[cadastroAberto, setCadastroAberto]= useState(false);
+  const {dark}= useDarkMode();
+  
+  const [comentarioJogo, setComentarioJogo] = useState({});
 
-
+  useEffect(() => {
+    const comentariosStorage = localStorage.getItem(KEY_LOCALSTORAGE);
+    if (comentariosStorage) {
+      const items = JSON.parse(comentariosStorage);
+      const filter = items.find((item) => item.id === idGame);
+      setComentarioJogo(filter);
+    }
+  }, [idGame]);
 
   const handleSubmit = (values, { setSubmitting }) => {
-  
-        values.id= id;
+    const comentariosStorage = localStorage.getItem(KEY_LOCALSTORAGE);
 
-        const newData = [...dados, values]
-        
-        
-        /* setDados([...dados, values]); */
-        setSubmitting(false);
-        console.log('handle', newData);
-    
-        
-  
-     /* setTimeout(() => {
-        values.id= id;
-        alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 1000); */
+    const comentario = {
+      id: Math.random().toString(16).slice(2),
+      likes: 0,
+      ...values,
+    };
+
+    const comentariosAtual = comentarioJogo?.comentarios ? [...comentarioJogo?.comentarios] : [];
+    const novaListaComentarios = [{ id: idGame, comentarios: [...comentariosAtual, comentario] }];
+
+    if (comentariosStorage) {
+      const itemsLocalStorage = JSON.parse(comentariosStorage);
+      const listaTodosComentariosSemJogoAtual = itemsLocalStorage.filter((item) => item.id !== idGame);
+
+      localStorage.setItem(
+        'COMENTARIOS',
+        JSON.stringify([...listaTodosComentariosSemJogoAtual, ...novaListaComentarios])
+      );
+    } else {
+      localStorage.setItem('COMENTARIOS', JSON.stringify(novaListaComentarios));
+    }
+
+    setComentarioJogo(...novaListaComentarios);
+    setSubmitting(false);
   };
 
   const schema = Yup.object().shape({
-    nome: Yup.string().required('Campo obrigatório').max(100, 'Máximo 100 caracteres'),
+    nome: Yup.string().required('Campo obrigatório'),
     email: Yup.string().required('Campo obrigatório').email('E-mail inválido'),
-    comentario: Yup.string().required('Campo obrigatório').min(10, 'Mínimo 10 caracteres'),  
+    comentario: Yup.string().required('Campo obrigatório'),
   });
 
   const initialValues = {
@@ -58,47 +64,39 @@ export const Formulario = ({id}) => {
     comentario: '',
   };
 
-  return (<>
-    <Model show={cadastroAberto} primary={dark}>
-      <h2>Register</h2>
+  return (
+    <>
+     <Model primary={dark} show={cadastroAberto} primary={dark}>
+      <h1>Comment register</h1>
 
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={schema} validateOnMount>
         {({ isSubmitting, resetForm, isValid }) => (
           <Form>
-            {console.log('isValid', isValid)}
-
             <Field name="nome" placeholder="Nome" />
             <ErrorMessage name="nome" style={{ color: 'red' }} component="span" />
-            
+
             <Field name="email" placeholder="E-mail" />
-            <ErrorMessage name="email" style={{ color: 'red' }} component="span" /> 
-            
-            <Field name="comentario" placeholder="Comentario" />
+            <ErrorMessage name="email" style={{ color: 'red' }} component="span" />
+
+            <Field name="comentario" placeholder="Comentário" />
             <ErrorMessage name="comentario" style={{ color: 'red' }} component="span" />
 
-            <Botao dark={dark} type="submit" disabled={isSubmitting || !isValid}>
-              Enviar
+            <Botao primary={dark} type="submit" disabled={isSubmitting || !isValid}>
+              Send
             </Botao>
 
-            <Botao dark={dark} type="button" disabled={isSubmitting} onClick={resetForm}>
-              Limpar
+            <Botao primary={dark} type="button" disabled={isSubmitting} onClick={resetForm}>
+              Clear
             </Botao>
           </Form>
         )}
       </Formik>
-    </Model>
-    <Botao dark={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>
-        {cadastroAberto?'Close Comments Register':'Open Comments Register'}
-    </Botao>
-
-
-
-
-
-
-
-
-
-
-    </>);
+      </Model>
+      <Botao primary={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>{cadastroAberto?'Collapse register':'Open register'}</Botao>
+     
+      {comentarioJogo?.comentarios?.map((item) => (
+        <p>{item.nome}</p>
+      ))}
+    </>
+  );
 };
