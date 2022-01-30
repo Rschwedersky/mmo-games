@@ -5,6 +5,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import * as Yup from 'yup';
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
+import { CardComentario } from '../CardComentario';
 
 const KEY_LOCALSTORAGE = 'COMENTARIOS';
 
@@ -24,6 +25,18 @@ export const Formulario = ({idGame}) => {
     }
   }, [idGame]);
 
+ 
+  const handleLikes = (id) =>{
+    console.log (id);
+    console.log (comentarioJogo.comentarios.find((item)=>item.id === id));
+    const lista = comentarioJogo.comentario;
+    console.log (lista);
+  };
+  
+  
+  
+  
+  
   const handleSubmit = (values, { setSubmitting }) => {
     const comentariosStorage = localStorage.getItem(KEY_LOCALSTORAGE);
 
@@ -95,7 +108,14 @@ export const Formulario = ({idGame}) => {
       <Botao primary={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>{cadastroAberto?'Collapse register':'Open register'}</Botao>
      
       {comentarioJogo?.comentarios?.map((item) => (
-        <p>{item.nome}</p>
+        <li key={item.id}>
+        <CardComentario key={item.id} item={item}/>
+        <div>
+        <button value={item.id} onClick={()=>handleLikes(item.id)}>Like</button>
+        <button>Disike</button>
+  
+        </div>
+        </li>
       ))}
     </>
   );

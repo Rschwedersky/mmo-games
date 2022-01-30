@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Botao = styled.button`
-  padding: 5px;
+  padding: 4px;
   background-color: ${({ theme, dark }) => dark?theme.colors.secondary.dark:theme.colors.secondary.light};
   cursor: pointer;
   color: ${({ theme, dark }) => dark?theme.colors.primary.dark:theme.colors.primary.light};
   border: 2px solid #37474f;
-  border-radius: 3px;
+  border-radius: 6px;
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary.dark};
   }

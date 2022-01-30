@@ -47,7 +47,7 @@ export const DetailGames = () => {
         <li>{gameDetail.minimum_system_requirements.graphics}</li>
         <li>{gameDetail.minimum_system_requirements.storage}</li>
         </div>
-        <div><Formulario idGame={gameDetail.id}/></div>
+        <div style={{padding:'3%'}}><Formulario idGame={gameDetail.id}/></div>
 
       </div>
     
