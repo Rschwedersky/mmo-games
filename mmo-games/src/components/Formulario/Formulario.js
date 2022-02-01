@@ -26,11 +26,34 @@ export const Formulario = ({idGame}) => {
   }, [idGame]);
 
  
-  const handleLikes = (id) =>{
-    console.log (id);
-    console.log (comentarioJogo.comentarios.find((item)=>item.id === id));
-    const lista = comentarioJogo.comentario;
-    console.log (lista);
+  const handleLikes = (entrada, soma) =>{
+    const comentariosStorage = localStorage.getItem(KEY_LOCALSTORAGE);
+
+
+    const comentario = {
+      id: Math.random().toString(16).slice(2),
+      likes: soma?++entrada.likes:--entrada.likes,
+      ...entrada,
+    };
+
+    const comentariosAtualIndex = comentarioJogo.comentarios.findIndex((item) => item.id === entrada.id);
+    const comentariosAtualInicio = comentarioJogo?.comentarios ? [...comentarioJogo?.comentarios.slice(0,comentariosAtualIndex)] : [];
+    const comentariosAtualFim = comentarioJogo?.comentarios ? [...comentarioJogo?.comentarios.slice(comentariosAtualIndex+1)] : [];
+    const novaListaComentarios = [{ id: idGame, comentarios: [...comentariosAtualInicio, comentario, ...comentariosAtualFim] }];
+
+    if (comentariosStorage) {
+      const itemsLocalStorage = JSON.parse(comentariosStorage);
+      const listaTodosComentariosSemJogoAtual = itemsLocalStorage.filter((item) => item.id !== idGame);
+
+      localStorage.setItem(
+        'COMENTARIOS',
+        JSON.stringify([...listaTodosComentariosSemJogoAtual, ...novaListaComentarios])
+      );
+    } else {
+      localStorage.setItem('COMENTARIOS', JSON.stringify(novaListaComentarios));
+    }
+
+    setComentarioJogo(...novaListaComentarios);
   };
   
   
@@ -79,7 +102,7 @@ export const Formulario = ({idGame}) => {
 
   return (
     <>
-     <Model primary={dark} show={cadastroAberto} primary={dark}>
+     <Model primary={dark} show={cadastroAberto} >
       <h1>Comment register</h1>
 
       <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={schema} validateOnMount>
@@ -105,14 +128,14 @@ export const Formulario = ({idGame}) => {
         )}
       </Formik>
       </Model>
-      <Botao primary={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>{cadastroAberto?'Collapse register':'Open register'}</Botao>
+      <Botao primary={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>{cadastroAberto?'Collapse comment register':'Open comment register'}</Botao>
      
       {comentarioJogo?.comentarios?.map((item) => (
         <li key={item.id}>
         <CardComentario key={item.id} item={item}/>
         <div>
-        <button value={item.id} onClick={()=>handleLikes(item.id)}>Like</button>
-        <button>Disike</button>
+        <button value={item} onClick={()=>handleLikes(item, true)}>Like</button>
+        <button value={item} onClick={()=>handleLikes(item, false)}>Dislike</button>
   
         </div>
         </li>
