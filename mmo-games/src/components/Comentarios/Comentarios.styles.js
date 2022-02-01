@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Botao = styled.button`
   padding: 4px;
+  margin: 3px;
   background-color: ${({ theme, dark }) => dark?theme.colors.secondary.dark:theme.colors.secondary.light};
   cursor: pointer;
   color: ${({ theme, dark }) => dark?theme.colors.primary.dark:theme.colors.primary.light};
@@ -19,9 +20,20 @@ ${({ primary, theme }) => ({
 })};
   z-index: auto;
 	display: ${({show}) => (show ? 'block' : 'none')};
-	
   border-radius: 3px;
   border: 2px solid #37474f;
 	top: 20%;
 	left: 20%;
+`;
+
+export const Card = styled.li`
+    ${({ primary, theme }) => ({
+    color: primary ? theme.colors.primary.main : theme.colors.secondary.light,
+    backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
+    })};
+    width: 100%;
+    border: 1px solid #37474f;
+    padding: 1rem;
+    list-style-type: none;
+    border-radius: 20px;
 `;

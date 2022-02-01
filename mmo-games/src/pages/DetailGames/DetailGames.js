@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDarkMode } from "../../contexts/darkmode/useDarkMode";
 import { fetchAllAPI } from "../../services/api-service";
 import { Navbar } from "./../../components/NavBar/NavBar";
-import { ConteinerH2, DetailImagePrincipal, DetailTitle, Indicator } from "./DetailGames.styles";
+import { ComentariosConteiner, ConteinerH2, DetailDescricao, DetailP, DetailP2, DetailTitle, ItemLista, MinimumSystemRequirements } from "./DetailGames.styles";
 
-import React from 'react';
-import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-import { Formulario } from "../../components/Formulario";
+import { Comentarios } from "../../components/Comentarios";
+import { SlideShow } from "../../components/SlideShow/SlideShow";
 
 
 
@@ -18,7 +17,6 @@ export const DetailGames = () => {
     const {id}= useParams();
     const[gameDetail, setGameDetail]= useState();
     const{dark}= useDarkMode();
-    const[listaScreenShots, setListaScreenShots]= useState();
 
     useEffect(() => {
         (async () => {
@@ -35,55 +33,27 @@ export const DetailGames = () => {
     <ConteinerH2>
     <DetailTitle primary={dark}>{gameDetail.title}</DetailTitle>
     </ConteinerH2>
-    <Slideshow lista={gameDetail.screenshots}/>
-    <h3>Description:</h3>
-      <p>{gameDetail.short_description}</p>
+    <SlideShow lista={gameDetail.screenshots}/>
+    <DetailDescricao primary={dark}>Description:</DetailDescricao>
+      <DetailP primary={dark}>{gameDetail.short_description}</DetailP>
       <div style={{display:'flex'}}>
-        <div>
-        <ul style={{fontSize:'1.5rem'}}>minimum_system_requirements</ul>
-        <li>{gameDetail.minimum_system_requirements.os}</li>
-        <li>{gameDetail.minimum_system_requirements.processor}</li>
-        <li>{gameDetail.minimum_system_requirements.memory}</li>
-        <li>{gameDetail.minimum_system_requirements.graphics}</li>
-        <li>{gameDetail.minimum_system_requirements.storage}</li>
-        </div>
-        <div style={{padding:'3%'}}><Formulario idGame={gameDetail.id}/></div>
+        <MinimumSystemRequirements>
+        <DetailP2 primary={dark}>minimum_system_requirements</DetailP2>
+        <ItemLista primary={dark}>Operating System:  {gameDetail.minimum_system_requirements.os}</ItemLista>
+        <ItemLista primary={dark}>Processor:  {gameDetail.minimum_system_requirements.processor}</ItemLista>
+        <ItemLista primary={dark}>Memory:  {gameDetail.minimum_system_requirements.memory}</ItemLista>
+        <ItemLista primary={dark}>Graphics:  {gameDetail.minimum_system_requirements.graphics}</ItemLista>
+        <ItemLista primary={dark}>Storage:  {gameDetail.minimum_system_requirements.storage}</ItemLista>
+        </MinimumSystemRequirements>
+        <ComentariosConteiner primary={dark}><Comentarios idGame={gameDetail.id}/></ComentariosConteiner>
 
       </div>
-    
+  
   
     </>}
     </>
     );
 };
 
-/* const ScreenShots= ({lista}) => {
-  return (
-  <ul>
-        {lista?.map((property) => (
-          <li key={property.id}>
-          <img src={property.image} alt="screenshots"/>
-          </li>
-        ))}
-  </ul>
-  );
-}; */
 
-const Slideshow = ({lista}) => {
-  
-
-  const zoomOutProperties = {
-    indicators: true,
-    scale: 0.4,
-    indicators: i => (<Indicator>{i + 1}</Indicator>),
-    autoplay:true
-  }
-  return (
-    <div >
-      <Zoom {...zoomOutProperties}>
-        { lista.map((each) => <img key={each.id} style={{width: "100%", height:"100%", borderRadius:'10px'}} src={each.image} alt="Screenshoots" />) }
-      </Zoom>
-    </div>
-  )
-}
 

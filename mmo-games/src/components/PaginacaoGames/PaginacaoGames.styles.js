@@ -7,8 +7,7 @@ export const PaginacaoGamesStyle = styled.div`
   })};
 
  
-  height: 100%;
- 
+  
   border-bottom-right-radius:20px
   
   

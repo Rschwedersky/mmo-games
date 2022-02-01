@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Botao, Model } from './Formulario.styles';
+import { Botao, Card, Model } from './Comentarios.styles';
 
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
@@ -9,7 +9,7 @@ import { CardComentario } from '../CardComentario';
 
 const KEY_LOCALSTORAGE = 'COMENTARIOS';
 
-export const Formulario = ({idGame}) => {
+export const Comentarios = ({idGame}) => {
 
   const[cadastroAberto, setCadastroAberto]= useState(false);
   const {dark}= useDarkMode();
@@ -28,7 +28,6 @@ export const Formulario = ({idGame}) => {
  
   const handleLikes = (entrada, soma) =>{
     const comentariosStorage = localStorage.getItem(KEY_LOCALSTORAGE);
-
 
     const comentario = {
       id: Math.random().toString(16).slice(2),
@@ -129,17 +128,17 @@ export const Formulario = ({idGame}) => {
       </Formik>
       </Model>
       <Botao primary={dark} onClick={()=>cadastroAberto?setCadastroAberto(false):setCadastroAberto(true)}>{cadastroAberto?'Collapse comment register':'Open comment register'}</Botao>
-     
+     <ul>
       {comentarioJogo?.comentarios?.map((item) => (
-        <li key={item.id}>
+        <Card primary={dark} key={item.id}>
         <CardComentario key={item.id} item={item}/>
-        <div>
-        <button value={item} onClick={()=>handleLikes(item, true)}>Like</button>
-        <button value={item} onClick={()=>handleLikes(item, false)}>Dislike</button>
-  
+        <div style={{marginLeft:'500px'}}>
+        <Botao value={item} onClick={()=>handleLikes(item, false)}>Dislike</Botao>
+        <Botao value={item} onClick={()=>handleLikes(item, true)}>Like</Botao>
         </div>
-        </li>
+        </Card>
       ))}
+      </ul>
     </>
   );
 };

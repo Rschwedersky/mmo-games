@@ -17,7 +17,7 @@ const handleVoltarAoTopo = () => {
   };
 return(<>
 <Container>
-<div><PaginacaoGames/></div>
+<PaginacaoGames/>
 <CardGrid>
   {gamesFiltrados.length === 0
     ? 'Nenhum elemento encontrado'
