@@ -5,14 +5,8 @@ export const PaginacaoGamesStyle = styled.div`
     color: primary ? theme.colors.primary.dark : theme.colors.secondary.main,
     backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
   })};
-
- 
-  
-  border-bottom-right-radius:20px
-  
-  
-  
-  
+  border-bottom-right-radius:20px;
+  text-align: center; 
 `;
 
 export const BotaoPaginacaoI = styled.button`

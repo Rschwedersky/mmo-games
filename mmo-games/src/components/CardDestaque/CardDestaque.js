@@ -12,13 +12,14 @@ export const CardDestaque = () => {
 
     return(
         <>
-        {destaque === undefined? 'Nenhuma Notícia encontrada'
+        {destaque === undefined? <></>
         :
         <Card primary={dark}>
             <Thumbnail>
                 <Image src={destaque.main_image} alt={destaque.title} />
+                <CardTitle primary={dark}>{destaque.title}</CardTitle>
             </Thumbnail>
-            <CardTitle>{destaque.title}</CardTitle>
+           
                 <Description>
                     <p>{destaque.short_description}</p>
                 </Description>

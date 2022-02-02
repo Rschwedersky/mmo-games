@@ -1,7 +1,7 @@
 
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
 import { useGames } from '../../contexts/games';
-import { InputBuscaI, PaginacaoGamesStyle } from './PaginacaoGames.styles';
+import { BotaoPaginacaoI, InputBuscaI, PaginacaoGamesStyle } from './PaginacaoGames.styles';
 
 export const PaginacaoGames = () => {
     const { setTermoBusca, games, gamesFiltrados, pagina, setPagina }= useGames();
@@ -20,23 +20,23 @@ export const PaginacaoGames = () => {
           <InputBuscaI
         onChange={(event) => {setTermoBusca(event.target.value);}}
         type="text"
-        placeholder="Search for the news"
+        placeholder="Search for the Games"
       />
           
-          <div >
+          
             <h3 >All Games ({gamesFiltrados.length})</h3>
             <div >
-              <button  onClick={handlePagAnterior}>
+              <BotaoPaginacaoI  onClick={handlePagAnterior}>
                 {`<`}
-              </button>
+              </BotaoPaginacaoI>
               <span>
                 Page {pagina} of {qtdMaximaPaginas}
               </span>
-              <button  onClick={handleProxPagina}>
+              <BotaoPaginacaoI  onClick={handleProxPagina}>
                 {`>`}
-              </button>
+              </BotaoPaginacaoI>
             </div>
-          </div>
+          
         </PaginacaoGamesStyle>
       );
 

@@ -4,6 +4,7 @@ import { CardDestaque } from "../../components/CardDestaque/CardDestaque";
 import { Navbar } from "../../components/NavBar/NavBar";
 import { Noticias } from "../../components/Noticias/Noticias";
 import { PaginacaoNoticias } from "../../components/PaginacaoNoticias/PaginacaoNoticias";
+import { Footer } from "../../components/Footer/Footer";
 
 
 export const NoticiasPage = () =>{
@@ -15,6 +16,7 @@ export const NoticiasPage = () =>{
         <CardDestaque/>
         <PaginacaoNoticias/>
         <Noticias/>
+        <Footer></Footer>
        
     </NoticiasProvider> 
     );

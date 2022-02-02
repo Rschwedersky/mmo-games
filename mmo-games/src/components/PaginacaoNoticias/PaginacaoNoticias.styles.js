@@ -7,12 +7,11 @@ export const Paginacao = styled.div`
   })};
   width: 100%;
   height: 80px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
- 
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 `;
 
 export const BotaoPaginacao = styled.button`

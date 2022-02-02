@@ -10,7 +10,7 @@ return (
           <Thumbnail>
             <Image src={noticia.thumbnail} alt={noticia.title} />
           </Thumbnail>
-          <CardTitle>{noticia.title}</CardTitle>
+          <CardTitle primary={state.dark}>{noticia.title}</CardTitle>
           <Description>
             <p>{noticia.short_description}</p>
           </Description>

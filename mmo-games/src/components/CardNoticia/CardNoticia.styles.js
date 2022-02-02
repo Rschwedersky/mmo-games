@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.li`
     ${({ primary, theme }) => ({
-    color: primary ? theme.colors.primary.main : theme.colors.secondary.main,
+        color: primary ? theme.colors.primary.main : theme.colors.secondary.light,
     backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
     })};
     width: 100%;
@@ -30,7 +30,10 @@ export const Image = styled.img`
 `;
 
 export const CardTitle = styled.h2`
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
+    ${({ primary, theme }) => ({
+        color: primary ? theme.colors.primary.dark : theme.colors.secondary.main,
+      })}; 
 `;
 
 export const Botao = styled.button`

@@ -8,9 +8,7 @@ export const Noticias = () => {
     const top = useRef();
     const { noticiasFiltradas } = useNoticias();
   
-    const handleVoltarAoTopo = () => {
-      top.current.scrollIntoView({ behavior: 'smooth' });
-    };
+    
   
     return (<>
       <Container ref={top}>
@@ -21,7 +19,7 @@ export const Noticias = () => {
         
         
       </Container>
-      <Botao onClick={handleVoltarAoTopo}>Back to top</Botao>
+      
       </>
     );
   
