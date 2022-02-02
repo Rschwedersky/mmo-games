@@ -6,13 +6,15 @@ export const CardComentario = ({item}) => {
     const {dark} = useDarkMode();
 
     return(
-    <div style={{display:'flex'}}>
-        <div>
+    <>
+      <div>
+          <div>
         <p style={{fontSize:'1.4rem'}}>{item.nome}</p>
         <p style={{fontSize:'0.9rem'}}>{item.email}</p>
-        <Comentario primary={dark}>{item.comentario}</Comentario>     
         </div>
-        <p style={{padding:'10px', marginTop:'10px'}}>Likes: <span style={{color:item.likes>=0?'blue':'red'}}>{item.likes}</span> </p>
-    </div>
+        <Comentario primary={dark}>{item.comentario}</Comentario> 
+      </div>
+        <p style={{padding:'10px'}}>Likes: <span style={{color:item.likes>=0?'#0b4200':'#420000'}}>{item.likes}</span> </p>
+    </>
         );
 };

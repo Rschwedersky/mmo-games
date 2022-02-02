@@ -132,9 +132,9 @@ export const Comentarios = ({idGame}) => {
       {comentarioJogo?.comentarios?.map((item) => (
         <Card primary={dark} key={item.id}>
         <CardComentario key={item.id} item={item}/>
-        <div style={{marginLeft:'500px'}}>
-        <Botao value={item} onClick={()=>handleLikes(item, false)}>Dislike</Botao>
-        <Botao value={item} onClick={()=>handleLikes(item, true)}>Like</Botao>
+        <div>
+        <Botao value={item} onClick={()=>handleLikes(item, false)}>Down vote</Botao>
+        <Botao value={item} onClick={()=>handleLikes(item, true)}>Up vote</Botao>
         </div>
         </Card>
       ))}

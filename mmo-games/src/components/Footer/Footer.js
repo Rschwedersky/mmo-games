@@ -1,6 +1,6 @@
 import { useDarkMode } from '../../contexts/darkmode/useDarkMode';
-
-import { FooterStyle } from './Footer.styles';
+import { GiSuperMushroom } from 'react-icons/gi';
+import { FooterStyle, Span } from './Footer.styles';
 
 export const Footer = () =>{
     const state = useDarkMode();
@@ -10,7 +10,7 @@ export const Footer = () =>{
     
  return(
     <FooterStyle primary={state.dark}>
-        <h3>Design by <spam style={{ cursor: 'pointer' }} onClick={()=>window.open('https://www.linkedin.com/in/rodrigo-schwedersky/')}>Rschwedersky</spam></h3>
+        <h3>Design by <Span onClick={()=>window.open('https://www.linkedin.com/in/rodrigo-schwedersky/')}><GiSuperMushroom/> Rschwedersky</Span></h3>
     </FooterStyle>
 
     );

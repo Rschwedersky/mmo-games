@@ -14,7 +14,7 @@ export const Noticias = () => {
       <Container ref={top}>
         
           {noticiasFiltradas.length === 0
-            ? 'Nenhuma Notícia encontrada'
+            ? <></>
             : noticiasFiltradas.map((item) => <CardNoticia key={item.id} noticia={item} />)}
         
         

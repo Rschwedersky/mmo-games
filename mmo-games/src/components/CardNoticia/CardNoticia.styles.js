@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.li`
     ${({ primary, theme }) => ({
-        color: primary ? theme.colors.primary.main : theme.colors.secondary.light,
+    color: primary ? theme.colors.primary.main : theme.colors.secondary.light,
     backgroundColor: primary ? theme.colors.secondary.light : theme.colors.primary.light,
     })};
     width: 100%;

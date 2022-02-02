@@ -52,6 +52,8 @@ ${({ primary, theme }) => ({
 `;
 
 
+
+
 export const DetailImagePrincipal = styled.img`
   cursor: pointer;
   padding: 10px;
