@@ -25,9 +25,7 @@ ${({ primary, theme }) => ({
     backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
   })};
     font-size: 1.7rem;
-    
-    padding: 10px;
-     
+    padding: 10px;    
 `;
 
 export const DetailP = styled.p`
@@ -36,10 +34,20 @@ ${({ primary, theme }) => ({
     backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
   })};
     font-size: 1.2rem;
-    
-    padding: 10px;
-     
+    padding: 10px;    
 `;
+
+export const DetailLast = styled.p`
+${({ primary, theme }) => ({
+    color: primary ? theme.colors.primary.dark : theme.colors.secondary.main,
+    backgroundColor: primary ? theme.colors.secondary.main : theme.colors.primary.dark,
+  })};
+    font-size: 1.2rem;
+    padding: 10px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;   
+`;
+
 export const DetailP2 = styled.p`
 ${({ primary, theme }) => ({
     color: primary ? theme.colors.primary.dark : theme.colors.secondary.dark,
