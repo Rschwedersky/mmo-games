@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const CardGrid = styled.ul`
-    margin:10%
+    margin: 10px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
