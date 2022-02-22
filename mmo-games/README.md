@@ -6,7 +6,7 @@ the application uses the dependencies: react-router-dom, react-slideshow-image, 
 
 ## Deploy
 
-[MMO-Games](https://heuristic-easley-92a458.netlify.app/home)
+[MMO-Games](https://react-api-mmo-games.netlify.app/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
